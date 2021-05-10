@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', author:'Esteban Torres', comapany: 'CompuMundo' });
+  res.render('index', { title: 'Express', author:'Esteban Torres', Company:'CompuMundo' });
 });
 
 router.get('/itgam', function(req, res, next) {

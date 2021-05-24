@@ -8,7 +8,51 @@ import logger from 'morgan';
 import indexRouter from '@s-routes/index';
 import usersRouter from '@s-routes/users';
 
+//iportando modulos de express
+
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
+import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackDevConfig from '../webpack.dev.config';
+import webpackConfig from '../webpack.dev.config';
+
+//Consultar el modo en que se estqa ejecutando nuestro programa 
+const env  = process.env.NODE_ENV || 'developement';
+
 var app = express();
+
+//verificnado el modo de ejecuion de la aplicacion
+
+if(env === 'development'){
+  console.log(">Ejecutando en modo desarrollador; WebPAck hot cargando")
+
+  //agregando le ruta HMR
+  //habilita la recarga del front-end caundo hay cambios
+  //fuente del front-end
+
+  webpackConfig.entry = ['webpack-hot-middleware/client?reload=true&timeout=1000', webpackConfig.entry];
+
+  //agregando plugin
+  webpackConfig.plugins.push(new webpack.HotModuleReplacementPlugin()); 
+
+  //creando compilador de webpack
+  const compiler = webpack(webpackConfig);
+
+  //agregando el middleware a la cadena de middlewares
+  app.use(webpackDevMiddleware(compiler,{
+    publicPath: webpackDevConfig.output.publicPath
+  }));
+
+  //agregando el webpack hot middleware
+  app.use(webpackHotMiddleware(compiler));
+
+
+}else {
+  console.log('>ejecutando en modo produccion')
+}
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

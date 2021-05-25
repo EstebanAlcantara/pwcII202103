@@ -1,28 +1,31 @@
-import './stylesheets/style.css'
-import './stylesheets/mystyles.css'
+import './stylesheets/style.css';
+import './stylesheets/mystyles.css';
 
-console.log("WebPack funcionando")
+// eslint-disable-next-line no-console
+console.log('WebPack funcionando');
 
-//default parameters
+// default parameters
 
-let show = (m = "hola") =>{
-    alert(m)
+const show = (m = 'hola') => {
+  // eslint-disable-next-line no-alert
+  alert(m);
 };
 
 show();
 
-
-function resolveAfter2Seconds(){
-    return new Promise( resolve => {
-        setTimeout(()=>{
-            resolve('resolve')
-        }, 2000);
-    });
+function resolveAfter2Seconds() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('resolve');
+    }, 2000);
+  });
 }
 
-async function asyncCall(){
-    console.log("Calling an async function");
-    const result = await resolveAfter2Seconds();
-    console.log(result);
+async function asyncCall() {
+  // eslint-disable-next-line no-console
+  console.log('Calling an async function');
+  const result = await resolveAfter2Seconds();
+  // eslint-disable-next-line no-console
+  console.log(result);
 }
- asyncCall();
+asyncCall();

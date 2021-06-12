@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// eslint-disable-next-line import/no-unresolved
 import winston from '@server/config/winston';
 /**
  * Module dependencies.

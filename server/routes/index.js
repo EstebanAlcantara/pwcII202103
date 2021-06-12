@@ -1,20 +1,15 @@
-const express = require('express');
+import { Router } from 'express';
+// importando el router de home
+import homeRouter from './home';
+// importando router de users
+import userRouter from './user';
 
-const router = express.Router();
+const addRoutes = (app) =>{
+  app.use('/', homeRouter);
+  app.use('/user', userRouter);
+  return app;
+};
 
-/* GET home page. */
-router.get('/', (_req, res) => {
-  res.render('index', {
-    title: 'Express',
-    author: 'Esteban Torres',
-    Company: 'CompuMundo',
-  });
-});
-
-router.get('/itgam', (_req, res) => {
-  res
-    .status(200)
-    .json({ message: 'Bienvenido al mundo de la programacion fullstack' });
-});
-
-module.exports = router;
+export default {
+  addRoutes,
+}

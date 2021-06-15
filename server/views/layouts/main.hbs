@@ -4,13 +4,30 @@
     <!-- Compiled and minified CSS -->
     <link
       rel='stylesheet'
-      href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'>
-      <link rel='stylesheet' href='/styles/app.css' />
+      href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css'
+    />
+    <link rel='stylesheet' href='/styles/app.css' />
   </head>
   <body>
-    {{{body}}}
+    <nav>
+      <div class='container'>
+        <div class='nav-wrapper'>
+          <a href='/' class='brand-logo'>
+            &#128209;Logo</a>
+          <ul class='right hide-on-med-and-down'>
+            <li><a href='/'>Inicio</a></li>
+            <li><a href='/about'>Acerca de</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class='container'>
+      {{{body}}}
+    </div>
+
     <script src='/js/bundle.js'></script>
     <script
-      src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'></script>
+      src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js'
+    ></script>
   </body>
 </html>
